@@ -13,48 +13,64 @@
     <!-- materialize -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
     <style type="text/css">
-        #drawing {
-            position: absolute;
-            right: 500;
-            top: 100;
-        }
-
-        #numbers {
-            top: 100;
-            left: 100;
+        #drawingboard {
+          text-align: center;
+          box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+          transition: 0.3s;
         }
     </style>
 </head>
 
-<body>
+<body class="blue accent-4">
 
-    <!-- depth selection -->
-    <div class="row">
-        <form id="depth-form" class="col s12">
-            <div class="row">
-                <div class="input-field col s6">
-                    <input id="depth" type="text" class="validate">
-                    <label for="depth">Depth</label>
-                </div>
-                <div class="input-field col s6">
-                    <button class="btn waves-effect waves-light" type="submit" name="action">Calcular
-                    </button>
-                </div>
-            </div>
-        </form>
+  <!-- navbar -->
+  <nav class="navbar blue darken-4">
+    <div class="nav-wrapper">
+      <!-- depth input -->
+      <form id="depth-form">
+        <div class="input-field">
+          <input id="depth" type="search" required>
+          <label class="label-icon" for="search"><i class="material-icons">search</i></label>
+          <i class="material-icons">close</i>
+        </div>
+      </form>
+      <!-- end -->
     </div>
+  </nav>
+  <!-- end -->
 
-    <!-- canvas drawing -->
-    <canvas id="drawing" width="401" height="401"></canvas>
+  <!-- canvas drawing -->
+  <div id="drawingboard" class="container">
+    <div id="drawingboard" class="card blue lighten-2">
+      <canvas id="drawing" width="401" height="401"></canvas>
+      <div class="card-content">
+        <span class="card-title activator grey-text text-darken-4">Sierpinski's Triangle</span>
+      </div>
+      <div class="card-reveal">
+        <span class="card-title grey-text text-darken-4">
+          Information<i class="material-icons right">close</i>
+        </span>
+        <p>
+          Also called the Sierpinski gasket or the Sierpinski Sieve, it's a fractal and attractive fixed set with the overall shape of an equilateral triangle, subdivided recursively into smaller equilateral triangles.
+        </p>
+        <!-- github -->
+        <div class="container">
+          <a href="https://github.com/DiracSpace/SierpinskiTriangle">Github</a>
+        </div>
+        <!-- end -->
+      </div>
+    </div>
+  </div>
+  <!-- end -->
 
-    <!-- javascript -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
-    <script type="text/javascript">
-        document.addEventListener('DOMContentLoaded', (e) => {
-            M.AutoInit();
-        });
-    </script>
-    <script type="text/javascript" src="js/index.js"></script>
+  <!-- javascript -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+  <script type="text/javascript">
+    document.addEventListener('DOMContentLoaded', (e) => {
+      M.AutoInit();
+    });
+  </script>
+  <script type="text/javascript" src="js/index.js"></script>
 </body>
 
 </html>
